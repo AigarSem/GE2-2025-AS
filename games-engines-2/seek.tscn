@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl25384ejsl6n"]
+
+[ext_resource type="Script" uid="uid://caoxa77eni8lr" path="res://boid.gd" id="1_g7hsx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pyidc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g7hsx"]
+
+[node name="root" type="Node3D"]
+
+[node name="boid" type="CharacterBody3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("1_g7hsx")
+target = NodePath("../Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="boid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_pyidc")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65308, 0, 3.94396)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+mesh = SubResource("SphereMesh_g7hsx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
