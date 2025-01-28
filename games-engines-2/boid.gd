@@ -26,4 +26,9 @@ func _process(delta: float) -> void:
 	
 	velocity = (velocity + accel * delta)
 	
+	if (velocity.length()) > 0:
+		global_transform.basis.z = velocity.normalized()
+		
+
+	
 	move_and_slide()
