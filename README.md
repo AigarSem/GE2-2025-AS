@@ -1,11 +1,3 @@
-# Minature Rotary Phone
-
-Examples of emergent movement AI implemented in Godot. There are Boids, Procedural Animation, Obstacle Avoidance, Path Following, Flocking, Formations etc etc.
-
-Click the image below for a video:
-
-[![Video](http://img.youtube.com/vi/61kGid-peqU/0.jpg)](http://www.youtube.com/watch?61kGid-peqU)
-
 # Game Engines 2 2025
 
 [![Video](http://img.youtube.com/vi/2yy03ItDzlo/0.jpg)](http://www.youtube.com/watch?2yy03ItDzlo)
@@ -44,7 +36,7 @@ Click the image below for a video:
 
 ## Lab 1
 - Star and clone the miniature-rotary-phone repo
-- Open the project, ecplore the examples amd get ideas for your assignment
+- Open the project, explore the examples amd get ideas for your assignment
 - Fork this repo with the examples from today
 
 Your task is to use the CSG Nodes in Godot to design a little creature such as a dragon, bird or snake using seek, arrive and the Spine Animator script 

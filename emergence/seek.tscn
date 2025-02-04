@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdl7pxjuqykwe"]
+
+[ext_resource type="Script" uid="uid://cks4uwsgfyggy" path="res://boid.gd" id="1_g7hsx"]
+[ext_resource type="Script" uid="uid://ceama6se3ec5g" path="res://FPController.gd" id="2_q6o6m"]
+[ext_resource type="Script" uid="uid://df0wbq4s31n0w" path="res://timer.gd" id="3_tgpyc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6o6m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g7hsx"]
+
+[node name="root" type="Node3D"]
+
+[node name="boid" type="CharacterBody3D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("1_g7hsx")
+target = NodePath("../Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="boid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_q6o6m")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79465, 0, 5.96061)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+mesh = SubResource("SphereMesh_g7hsx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.987688, -0.156434, 0, -6.83797e-09, -4.31732e-08, 1, -0.156434, -0.987688, -4.37114e-08, 0, 11.3645, 0)
+script = ExtResource("2_q6o6m")
+rot_speed = 180.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.482709, 0.841256, 0.243475, -0.751118, 0.540637, -0.378858, -0.450348, 0, 0.892853, 0, 0, -4.51959)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+script = ExtResource("3_tgpyc")
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
