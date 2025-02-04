@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6fiive38m74n"]
+[gd_scene load_steps=5 format=3 uid="uid://c6fiive38m74n"]
 
 [ext_resource type="Script" uid="uid://ceama6se3ec5g" path="res://FPController.gd" id="1_1im6y"]
 [ext_resource type="PackedScene" uid="uid://1klgn827pvr4" path="res://genai/whale.tscn" id="2_qjhvm"]
+[ext_resource type="Script" uid="uid://cx7u2q6o5o34f" path="res://car.gd" id="3_qjhvm"]
 
 [sub_resource type="Environment" id="Environment_f6dac"]
 
@@ -24,5 +25,8 @@ environment = SubResource("Environment_f6dac")
 
 [node name="CharacterBody3D2" parent="Whale/Head" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../../Marker3D")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_qjhvm")
 
 [editable path="Whale"]
