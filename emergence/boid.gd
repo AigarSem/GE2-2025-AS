@@ -18,6 +18,19 @@ var max_speed = 10
 @export var player_steering_enabled:bool = true
 @export var s_force:float = 10
 
+@export var persue_enabled = true
+@export var persue_target:CharacterBody3D
+
+
+func persue(persue_target):
+	var dist = (persue_target.global_position - global_position).length()
+	
+	var time = dist / max_speed
+	
+	var projected = persue_target.global_position + (persue_target.velocity * time)
+	
+	return seek(projected)
+
 
 # Set Gamepad sticks in project settings
 func player_steering():
@@ -30,7 +43,12 @@ func player_steering():
 	# Basis Z is forward vector of the object
 	f = global_basis.z * s * s_force
 	
-	f += global_basis.x * l * s_force
+	# Problem of turning to banking angle causing up and down movement
+	# xz_direction eliminates up and down
+	var xz_dir = global_basis.x
+	xz_dir.y = 0
+	xz_dir = xz_dir.normalized()
+	f += xz_dir * l * s_force
 	
 	return f
 
