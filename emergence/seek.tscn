@@ -1,15 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdl7pxjuqykwe"]
+[gd_scene load_steps=14 format=3 uid="uid://cdl7pxjuqykwe"]
 
 [ext_resource type="Script" uid="uid://cks4uwsgfyggy" path="res://boid.gd" id="1_g7hsx"]
-[ext_resource type="Script" uid="uid://ceama6se3ec5g" path="res://FPController.gd" id="2_q6o6m"]
+[ext_resource type="Script" uid="uid://c0cjj7oaklbit" path="res://TPCamera.gd" id="3_p2fuv"]
 [ext_resource type="Script" uid="uid://df0wbq4s31n0w" path="res://timer.gd" id="3_tgpyc"]
+[ext_resource type="Script" path="res://PathDrawer.gd" id="4_p2fuv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tgpyc"]
+sky_top_color = Color(0.929874, 0.947462, 0.990667, 1)
+sky_horizon_color = Color(1.21557, 1.21222, 1.21402, 1)
+ground_horizon_color = Color(1.21557, 1.21222, 1.21402, 1)
+
+[sub_resource type="Sky" id="Sky_p2fuv"]
+sky_material = SubResource("ProceduralSkyMaterial_tgpyc")
+
+[sub_resource type="Environment" id="Environment_dik45"]
+background_mode = 2
+sky = SubResource("Sky_p2fuv")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_q6o6m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgpyc"]
+albedo_color = Color(0, 0.0705882, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_g7hsx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tgpyc"]
 size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2fuv"]
+albedo_color = Color(0.0666667, 0.917647, 0.662745, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_tgpyc"]
 _data = {
@@ -20,8 +41,11 @@ point_count = 6
 
 [node name="root" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dik45")
+
 [node name="boid" type="CharacterBody3D" parent="." node_paths=PackedStringArray("target", "arrive_target", "path")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70418, 0, -23.589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70418, 0.8565, -23.589)
 script = ExtResource("1_g7hsx")
 target = NodePath("../Marker3D")
 arrive_enabled = false
@@ -32,6 +56,10 @@ path = NodePath("../Path3D")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="boid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("BoxMesh_q6o6m")
+surface_material_override/0 = SubResource("StandardMaterial3D_tgpyc")
+
+[node name="Marker3D" type="Marker3D" parent="boid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.59019, -8.88258)
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79465, 0, 5.96061)
@@ -41,22 +69,26 @@ mesh = SubResource("SphereMesh_g7hsx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.482709, 0.841256, 0.243475, -0.751118, 0.540637, -0.378858, -0.450348, 0, 0.892853, 0, 0, -4.51959)
+shadow_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 script = ExtResource("3_tgpyc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_tgpyc")
+surface_material_override/0 = SubResource("StandardMaterial3D_p2fuv")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.917123, 0.398605, 1.09378e-08, -6.83797e-09, -4.31732e-08, 1, 0.398605, 0.917123, 4.23208e-08, 9.14883, 5.98648, -43.6768)
-script = ExtResource("2_q6o6m")
-rot_speed = 180.0
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
+transform = Transform3D(-0.91706, 0, -0.398749, 0, 1, 0, 0.398749, 0, -0.91706, 9.14883, 5.98648, -43.6768)
+script = ExtResource("3_p2fuv")
+target = NodePath("../boid/Marker3D")
+player = NodePath("../boid")
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.84191, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 curve = SubResource("Curve3D_tgpyc")
+script = ExtResource("4_p2fuv")
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

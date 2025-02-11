@@ -22,6 +22,7 @@ func arrive(target) -> Vector3:
 	var desired = (to_target * clamped) / dist
 	return desired - velocity
 
+
 func seek(target) -> Vector3:
 	var to_target:Vector3 = target - global_position
 	var desired = to_target.normalized() * max_speed
@@ -34,6 +35,7 @@ func _ready() -> void:
 func draw_gizmos():
 	DebugDraw3D.draw_arrow(global_position, global_position + force, Color.AQUAMARINE, 0.1)
 	DebugDraw3D.draw_arrow(global_position, global_position + velocity, Color.CRIMSON, 0.1)
+	DebugDraw3D.draw_arrow(global_position, global_position + global_basis.y * 10, Color.CRIMSON, 0.1)
 	DebugDraw3D.draw_sphere(arrive_target.global_position, slowing_distance, Color.BURLYWOOD)
 
 func calculate():
@@ -55,7 +57,7 @@ var looped = false
 	
 func follow_path():
 	
-	var p = path.get_curve().get_point_position(path_index)
+	var p = path.global_transform * path.get_curve().get_point_position(path_index)
 	var d = (p - global_position).length()
 	if d < 2:
 		path_index = (path_index + 1) % path.get_curve().point_count
