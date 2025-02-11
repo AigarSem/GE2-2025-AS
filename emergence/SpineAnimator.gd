@@ -5,6 +5,7 @@ class_name SpineAnimator extends Node
 				
 @export var bones:Array[Node] = [] 
 var offsets = [] 
+var rotations = []
 
 func calculateOffsets():
 	bones.clear()
@@ -15,6 +16,7 @@ func calculateOffsets():
 			# offset = bones[i-1].global_transform.basis.xform_inv(offset)
 			offset = bones[i-1].global_transform.basis.inverse() * offset
 			offsets.push_back(offset)
+			rotations.push_back(bones[i].transform.basis)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -34,7 +34,18 @@
 - https://github.com/skooter500/GE2-Lab-Test-2019-Solution
 - https://github.com/skooter500/GE2-LabTest2-2017
 - https://github.com/skooter500/GAILabTest12017
-	
+
+
+## Week 3 
+- Player Steering
+- Pursue
+- Offset Pursue
+
+## Lab
+- Create a behavior called PlayerSteering that takes input from a controller and generates a force
+
+## Week 2
+- Seek, Arrive, Path Follow
 
 ## Week 1 - Introduction to the course. Introduction to steering behaviours
 
