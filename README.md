@@ -11,7 +11,7 @@
 - [Unity to Godot porting guide](https://github.com/skooter500/csresources/blob/master/unity_to_godot.md)
 - [A build of Infinite Forms](https://drive.google.com/file/d/1w24BcMAi6P1XmPc9D9ss6Lkro4KBvsMS/view?usp=sharing)
 - [All about Infinite Forms](http://bryanduggan.org/forms)
-- [Minature Rotary Phone](http://github.com/skooter500/minature-rotary-phone)
+- [Minature Rotary Phone](http://github.com/skooter500/miniature-rotary-phone)
 - [Infinite Forms Code](http://github.com/skooter500/forms)
 - [ECS2020](http://github.com/skooter500/ECS2020)
 
@@ -35,6 +35,20 @@
 - https://github.com/skooter500/GE2-LabTest2-2017
 - https://github.com/skooter500/GAILabTest12017
 
+## Week 4 - Refactoring
+- [SOLID Principles](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+- [Procedural Animation](https://www.roadtovr.com/the-need-for-procedural-animation-in-virtual-reality-ocean-rift-developer/)
+- [Archaic Revival](https://archive.org/stream/pdfy-CVSFsGW3fYSFP1wM/McKenna%2C%20Terence%20-%20The%20Archaic%20Revival_djvu.txt) 
+
+## Lab
+- Create a formation generator that creates a V formation of boids with the leader implementing path follow and the followers implementing offset pursue:
+
+[![Video](http://img.youtube.com/vi/bydalDzhCBY/0.jpg)](http://www.youtube.com/watch?bydalDzhCBY)
+
+- The Formation Generator should expose leader and followers as fields
+
+- Modify the formation generator to use Tweens wheen spawning in the agents
+- Modify the formation generator to generate boids in a semi circle
 
 ## Week 3 
 - Player Steering
@@ -43,9 +57,10 @@
 
 ## Lab
 - Create a behavior called PlayerSteering that takes input from a controller and generates a force
+- Create a formation generator that creates a V formation where the leader is at the top and the followers are spaced out evenly in a V shape behind the leader
 
 ## Week 2
-- Seek, Arrive, Path Follow
+- Seek, Arrive, Path Follow, Banking, Damping
 
 ## Week 1 - Introduction to the course. Introduction to steering behaviours
 
@@ -57,6 +72,6 @@
 Your task is to use the CSG Nodes in Godot to design a little creature such as a dragon, bird or snake using seek, arrive and the Spine Animator script 
 
 - [Introduction slides](https://tudublin-my.sharepoint.com/:p:/g/personal/bryan_duggan_tudublin_ie/EVB8iHL_Cy1DvVT1BW5SSd8BiP7R3pY7lBQoMN8Tmq0isw?e=s1TB2n)
-- [Steering Behaviours Slides (a bit out of date)](https://drive.google.com/file/d/1nQeVLqhNY1JvAZQK_BgMxUoVr7w1VPUE/view?usp=sharing)
+- [Steering Behaviours Slides (a bit out of date)](https://tudublin-my.sharepoint.com/:p:/g/personal/bryan_duggan_tudublin_ie/EZ-eFlMVQZBGtPEBoaqJuxMBK0R7lHtKNg4woI0H0MO0aA?e=h5cQ2s)
 - [Craig Reynolds original paper](https://www.red3d.com/cwr/papers/1999/gdc99steer.pdf)
 - [Steering behaviours in Java](https://www.red3d.com/cwr/steer/)
