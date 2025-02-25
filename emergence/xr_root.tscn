@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgipsvjrurphk"]
+
+[ext_resource type="Script" uid="uid://bel8c6ap3yhv6" path="res://root.gd" id="1_cnda3"]
+
+[sub_resource type="Environment" id="Environment_krv6h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnda3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_krv6h"]
+
+[node name="root" type="Node3D"]
+script = ExtResource("1_cnda3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_krv6h")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D"]
+mesh = SubResource("BoxMesh_cnda3")
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D2"]
+mesh = SubResource("BoxMesh_krv6h")

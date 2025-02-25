@@ -1,9 +1,5 @@
 # Game Engines 2 2025
 
-
-
-
-
 [![Video](http://img.youtube.com/vi/2yy03ItDzlo/0.jpg)](http://www.youtube.com/watch?2yy03ItDzlo)
 
 ## Resources
@@ -35,6 +31,13 @@
 - https://github.com/skooter500/GE2-LabTest2-2017
 - https://github.com/skooter500/GAILabTest12017
 
+## Week 5 - Wandering
+
+## Lab
+- Fix the bug with the spine animator! It wont work if the elements in the spine are rotated
+- Create RandomWalk behavior. It picks a point inside a radius. Seeks the point. When it gets close, it picks a new point
+- If you have a headset, recreate the TakeControl scene from the miniature-rotary-phone repo for VR.
+
 ## Week 4 - Refactoring
 - [SOLID Principles](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
 - [Procedural Animation](https://www.roadtovr.com/the-need-for-procedural-animation-in-virtual-reality-ocean-rift-developer/)
@@ -43,7 +46,7 @@
 ## Lab
 - Create a formation generator that creates a V formation of boids with the leader implementing path follow and the followers implementing offset pursue:
 
-[![Video](http://img.youtube.com/vi/bydalDzhCBY/0.jpg)](http://www.youtube.com/watch?bydalDzhCBY)
+[![Video](http://img.youtube.com/vi/bydalDzhCBY/0.jpg)](http://www.youtube.com/watch?v=bydalDzhCBY)
 
 - The Formation Generator should expose leader and followers as fields
 
