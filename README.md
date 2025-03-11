@@ -31,12 +31,43 @@
 - https://github.com/skooter500/GE2-LabTest2-2017
 - https://github.com/skooter500/GAILabTest12017
 
+## Week 6 - Avoidance
+- [Not bumping into things](https://www.researchgate.net/profile/Craig-Reynolds/publication/315832146_Not_Bumping_Into_Things/links/58ea5172458515e30dcfb522/Not-Bumping-Into-Things.pdf?__cf_chl_rt_tk=ZFo16KKcM7671Dh1y0HG9bis6jFI01568LvMSVliWeE-1741685927-1.0.1.1-9Z8oF_V7oGT1qjZmYKq1UcMFTSG_vQCre6HVCJJqB0Y)
+- [Procedural Animation in Virtual Reality](https://www.youtube.com/watch?v=pmnJ6rpioaQ)
+- [Boids](https://www.red3d.com/cwr/boids/)
+
+Avoidance:
+
+- How are the feelers created?
+- What direction?
+- How many are there? Whys this number?
+- How does the behaviour handle holes in the colliders?
+- Does the speed of the boid matter?
+- What direction is the force generated?
+- WHat alternatives are there to this?
+- How does the behaviour avoid certain obstacles while ignoring others?
+- How often are the feelers calculated and why?
+- How does the behaviour take priority over other behaviours?
+- How would you improve the behaviour?
+- How does it improve on Craig Reynolds avoidance behaviours?
+
+## Lab
+- Create the TakeControl scene from the miniature-rotary-phone repo for VR.
+- Create the octopus from Infinite Forms:
+
+https://www.youtube.com/watch?v=NMDupdv85FE
+
+Look at the TenticleCreatureGenerator in the Forms repo to figure out how it is created. 
+
+Use Minature Rotary Phone as starter code
+
+You can use the CreatureGenerator to generate tentacles. Create a boid for the head with a weight of 0 on the harmonic behaviour. Create a fin animator
+
 ## Week 5 - Wandering
 
 ## Lab
 - Fix the bug with the spine animator! It wont work if the elements in the spine are rotated
 - Create RandomWalk behavior. It picks a point inside a radius. Seeks the point. When it gets close, it picks a new point
-- If you have a headset, recreate the TakeControl scene from the miniature-rotary-phone repo for VR.
 
 ## Week 4 - Refactoring
 - [SOLID Principles](https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
