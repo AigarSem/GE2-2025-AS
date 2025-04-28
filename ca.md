@@ -4,6 +4,7 @@
 
 Your task is to create a reaalistic holographic lifeform that is aware of it's surroundings and can interacxt with the world and the player. You can use the tools and techniques you learn on the module to bring your creature to life with steering behaviours, procedural animation and Gen AI
 
+[Fork this repo](https://github.com/skooter500/miniature-rotary-phone) to get a starter project and feel free to use all the examples in the repo
 
 ## Deliverables     
 
